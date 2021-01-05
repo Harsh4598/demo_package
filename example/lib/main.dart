@@ -52,7 +52,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  final calculator = Calculator();
+  //final calculator = Calculator();
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -61,8 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
 
-      print(calculator.addOne(_counter));
-      _counter = calculator.addOne(_counter);
+      // print(calculator.addOne(_counter));
+      // _counter = calculator.addOne(_counter);
     });
   }
 
@@ -100,12 +100,15 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Demo_Package(
+              imageUrl:
+                  "https://random.dog/3f62f2c1-e0cb-4077-8cd9-1ca76bfe98d5.jpg",
+              loadingBuilder: (context) => Center(
+                child: CircularProgressIndicator(),
+              ),
+              errorBuilder: (context, e) => Center(
+                child: Text('Error appear!'),
+              ),
             ),
           ],
         ),
